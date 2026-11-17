@@ -10,6 +10,18 @@ Every simulated person starts at birth with a baseline lung health score (`100.0
 3. **Pharmacometric Benefit vs. Toxicity:** Drugs reduce disease severity and mortality via saturating $E_{\max}$ dose-response curves, balanced against quadratic dose-dependent side-effect penalties, age sensitivity multipliers, and overdose mortality risk.
 4. **Cohort Outputs:** Generates life expectancy estimates, annual lung health trajectories, and summary CSVs and PNG plots inside `output/`.
 
+## Model Limitations & Methodological Caveats
+
+While this framework captures longitudinal pollution exposure, recovery dynamics, and pharmacological dose-response trade-offs, it relies on several simplifying assumptions that should be noted when interpreting results:
+
+* **Illustrative Baseline Parameters:** The default values shipped in `data/*.csv` are calibrated placeholders tuned to demonstrate plausible behavior rather than validated clinical or epidemiological figures[cite: 4]. They must not be used for medical decisions or clinical predictions[cite: 4].
+* **Stochastic Monte Carlo Variance:** Outcomes are generated from individual random life trajectories; smaller cohort sizes introduce sampling noise (for example, life expectancy differences smaller than ~0.5 years fall within random variance at a cohort size of 4,000 individuals)[cite: 4].
+* **Log-Linear Exposure Extrapolation:** Disease incidence scales exponentially via $RR^{(\Delta C / 10)}$ above guideline thresholds[cite: 4], which assumes a constant relative risk slope even at extreme pollution concentrations rather than the flattening (supralinear) integrated exposure-response curves used in Global Burden of Disease (GBD) assessments.
+* **No Drug-Drug Interactions or Comorbidity Multipliers:** Multiple active medications act independently without pharmacokinetic or pharmacodynamic interactions[cite: 4], and having multiple concurrent chronic conditions does not amplify mortality or severity multipliers[cite: 4].
+* **Irreversible Chronic Conditions:** Once an agent acquires a chronic disease, the condition persists indefinitely without remission[cite: 4].
+* **Omitted Demographic & Indoor Covariates:** Individual-level modifiers such as biological sex, socioeconomic status, diet, occupational exposure, and household/indoor air pollution (e.g., solid cooking fuels) are abstracted in the current model[cite: 4].
+* **Static Background Policy Environment:** Unless explicitly scheduled, background ambient pollutant concentrations remain stationary rather than reflecting dynamic policy interventions (e.g., fuel-standard upgrades or clean-air mandates) over time[cite: 2, 4].
+
 ## Repository Structure
 
 | File / Folder | Purpose |
