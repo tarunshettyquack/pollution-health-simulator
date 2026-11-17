@@ -1,0 +1,7 @@
+name,dose_unit,target_disease,prophylactic,prophylaxis_min_age,min_age,emax_incidence,emax_severity,emax_mortality,standard_dose,max_safe_dose,side_effect,side_effect_prob,side_effect_penalty,overdose_mortality
+budesonide_inhaled,mcg/day,asthma,0,0,4,0,0.6,0.6,400,1600,oral_thrush,0.05,1.5,0.01
+tiotropium,mcg/day,copd,0,0,18,0,0.3,0.2,18,36,dry_mouth,0.08,1.5,0.02
+atorvastatin,mg/day,ischemic_heart_disease,1,45,18,0.25,0.15,0.30,40,80,myopathy,0.03,6,0.05
+clopidogrel,mg/day,stroke,0,0,18,0,0.1,0.2,75,150,bleeding,0.02,12,0.08
+amoxicillin,mg/day,lower_resp_infection,0,0,0,0,0.5,0.6,1500,3000,gi_upset,0.10,2,0.01
+immunotherapy_generic,mg/day,lung_cancer,0,0,18,0,0.2,0.35,100,200,severe_toxicity,0.25,12,0.15
